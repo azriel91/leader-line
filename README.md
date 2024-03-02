@@ -4,6 +4,16 @@
 
 Draw a leader line in your web page.
 
+## Development
+
+```bash
+pnpm install
+pnpm grunt build
+```
+
+
+## Examples
+
 **<a href="https://anseki.github.io/leader-line/">Document and Examples https://anseki.github.io/leader-line/</a>**
 
 ```html
