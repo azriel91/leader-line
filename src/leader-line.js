@@ -116,7 +116,8 @@
       lineOutlineColor: 'indianred',
       lineOutlineSize: 0.25,
       plugOutlineEnabledSE: [false, false],
-      plugOutlineSizeSE: [1, 1]
+      plugOutlineSizeSE: [1, 1],
+      classes: ''
     },
 
     isObject = (function() {
@@ -1047,6 +1048,7 @@
     */
 
     props.face = svg.appendChild(baseDocument.createElementNS(SVG_NS, 'g'));
+    props.face.className.baseVal = props.options.classes;
     props.lineFace = element = props.face.appendChild(baseDocument.createElementNS(SVG_NS, 'use'));
     element.href.baseVal = '#' + lineShapeId;
 
@@ -3353,7 +3355,7 @@
     var props = {
       // Initialize properties as array.
       options: {anchorSE: [], socketSE: [], socketGravitySE: [], plugSE: [], plugColorSE: [], plugSizeSE: [],
-        plugOutlineEnabledSE: [], plugOutlineColorSE: [], plugOutlineSizeSE: [], labelSEM: ['', '', '']},
+        plugOutlineEnabledSE: [], plugOutlineColorSE: [], plugOutlineSizeSE: [], labelSEM: ['', '', ''], classes: '' },
       optionIsAttach: {anchorSE: [false, false], labelSEM: [false, false, false]},
       curStats: {}, aplStats: {}, attachments: [], events: {}, reflowTargets: []
     };
@@ -3366,6 +3368,9 @@
       initStats(props.aplStats, effectStats);
       props.options[effectName] = false;
     });
+    if (options.classes) {
+        props.options.classes = options.classes;
+    }
     initStats(props.curStats, SHOW_STATS);
     initStats(props.aplStats, SHOW_STATS);
     props.curStats.show_effect = DEFAULT_SHOW_EFFECT;
